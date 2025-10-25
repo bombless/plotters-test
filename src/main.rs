@@ -26,7 +26,7 @@ fn plot(filename: &str, data: impl Iterator<Item=(f32, f32)>) -> Result<(), Box<
     root.fill(&WHITE)?;
     let mut chart = ChartBuilder::on(&root)
         .caption("y=sin(x)", ("sans-serif", 50).into_font())
-        .margin(5)
+        .margin_right(20)
         .x_label_area_size(30)
         .y_label_area_size(30)
         .build_cartesian_2d(-10f32..10f32, -1f32..1f32)?;
