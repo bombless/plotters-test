@@ -36,7 +36,14 @@ fn plot(filename: &str, data: impl Iterator<Item=(f32, f32)>) -> Result<(), Box<
     chart
         .draw_series(LineSeries::new(data, &RED,))?
         .label("y = sin(x)")
-        .legend(|(x, y)| PathElement::new((-2..=2).map(|e|[(x, y + e), (x + 20, y + e)]).flatten().collect::<Vec<_>>(), &RED));
+        .legend(|(x, y)| {
+            let style = ShapeStyle {
+                color: RED.mix(0.6),
+                filled: true,
+                stroke_width: 0,
+            };
+            Rectangle::new([(x, y - 5), (x + 20, y + 5)], style)
+        });
 
     chart
         .configure_series_labels()
