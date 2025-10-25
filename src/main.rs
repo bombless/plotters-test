@@ -36,7 +36,7 @@ fn plot(filename: &str, data: impl Iterator<Item=(f32, f32)>) -> Result<(), Box<
     chart
         .draw_series(LineSeries::new(data, &RED,))?
         .label("y = sin(x)")
-        .legend(|(x, y)| PathElement::new((-2..=2).map(|e|[(x, y + e), (x + 20, y + e)].into_iter()).flatten().collect::<Vec<_>>(), &RED));
+        .legend(|(x, y)| PathElement::new((-2..=2).map(|e|[(x, y + e), (x + 20, y + e)]).flatten().collect::<Vec<_>>(), &RED));
 
     chart
         .configure_series_labels()
