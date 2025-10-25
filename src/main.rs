@@ -42,7 +42,7 @@ fn plot(filename: &str, data: impl Iterator<Item=(f32, f32)>) -> Result<(), Box<
                 filled: true,
                 stroke_width: 0,
             };
-            Rectangle::new([(x, y - 5), (x + 20, y + 5)], style)
+            Circle::new((x + 10, y), 6, style)
         });
 
     chart
